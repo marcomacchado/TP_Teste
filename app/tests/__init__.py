@@ -1,0 +1,1 @@
+# Arquivo vazio, necessário para identificar "tests" como um pacote Python.
