@@ -1,11 +1,12 @@
 import unittest
 from app import create_app
 from app.models import TaskManager
+import werkzeug
 
 class TestTaskRoutes(unittest.TestCase):
     def setUp(self):
         self.app = create_app()
-        self.client = self.app.test_client()
+        self.client = self.app.test_client(user_agent=f'werkzeug/{werkzeug.__version__}')
         self.task_manager = TaskManager()
         self.task_manager.tasks = []
 
