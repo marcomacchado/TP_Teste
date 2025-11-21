@@ -13,7 +13,7 @@ def create_app():
     from .routes import task_bp
     app.register_blueprint(task_bp, url_prefix='/tasks')
 
-        # Rotas para servir o frontend
+    # Rotas para servir o frontend
     @app.route('/')
     def serve_index():
         return send_from_directory('../frontend', 'index.html')
@@ -21,5 +21,5 @@ def create_app():
     @app.route('/<path:filename>')
     def serve_static_files(filename):
         return send_from_directory('../frontend', filename)
-    
+
     return app

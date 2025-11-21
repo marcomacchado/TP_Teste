@@ -57,3 +57,9 @@ def mark_completed(task_id):
     if task:
         return jsonify(task), 200
     return jsonify({"error": "Task not found"}), 404
+
+@task_bp.route('/clear', methods=['DELETE'])
+def delete_all_tasks():
+    task_manager.tasks = []  
+    task_manager.save_tasks() 
+    return jsonify({"message": "Todas as tarefas foram apagadas"}), 200
