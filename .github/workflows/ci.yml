@@ -26,7 +26,7 @@ jobs:
           python -m venv venv
           source venv/bin/activate
           pip install --upgrade pip
-          pip install pytest
+          pip install Flask pytest
 
       - name: Run Tests (Ubuntu)
         run: |
@@ -49,7 +49,7 @@ jobs:
           python -m venv venv
           source venv/bin/activate
           pip install --upgrade pip
-          pip install pytest
+          pip install Flask pytest
 
       - name: Run Tests (macOS)
         run: |
@@ -72,7 +72,7 @@ jobs:
           python -m venv venv
           .\venv\Scripts\Activate.ps1
           pip install --upgrade pip
-          pip install pytest
+          pip install Flask pytest
 
       - name: Run Tests (Windows)
         run: |
