@@ -18,8 +18,10 @@ def add_task():
     description = data.get('description')
     category = data.get('category', 'General')
     deadline = data.get('deadline')
+
     if category not in TaskManager.CATEGORIES:
         return jsonify({"error": "Categoria inválida"}), 400
+
     task = task_manager.add_task(description, category, deadline)
     if task:
         return jsonify(task), 201

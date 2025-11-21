@@ -1,36 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Tarefas</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <div class="container">
-    <h1>Lista de Tarefas</h1>
+    <div class="theme-toggle-container">
+        <button id="toggle-theme" class="theme-btn">🌙</button>
+    </div>
+    
 
-    <form id="task-form">
-      <input type="text" id="description" placeholder="Descrição" required>
-      <select id="category">
-        <option value="Trabalho">Trabalho</option>
-        <option value="Pessoal">Pessoal</option>
-        <option value="Casa">Casa</option>
-        <option value="Saúde">Saúde</option>
-        <option value="Finanças">Finanças</option>
-      </select>
-      <input type="date" id="deadline" placeholder="Prazo">
-      <button type="submit">Adicionar</button>
-    </form>
+    <div class="task-list-container">
+        <h1>Lista de Tarefas</h1>
 
-    <h2>Tarefas Pendentes</h2>
-    <ul id="pending-tasks"></ul>
+        <form id="task-form">
+            <input type="text" id="description" placeholder="Nova Tarefa..." required>
+            <select id="category">
+                <option value="Trabalho">Trabalho</option>
+                <option value="Pessoal">Pessoal</option>
+                <option value="Casa">Casa</option>
+                <option value="Saúde">Saúde</option>
+                <option value="Finanças">Finanças</option>
+            </select>
+            <input type="date" id="deadline" placeholder="Prazo">
+            <button type="submit">Adicionar Tarefa</button>
+        </form>
 
-    <h2>Tarefas Concluídas</h2>
-    <ul id="completed-tasks"></ul>
-  </div>
+        <div class="task-lists">
+            <h2>Tarefas Pendentes</h2>
+            <ul id="pending-tasks"></ul>
+            <h2>Tarefas Concluídas</h2>
+            <ul id="completed-tasks"></ul>
+        </div>
+    </div>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

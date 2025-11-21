@@ -1,61 +1,181 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f8f8f8;
+    /* Light background for better readability */
     margin: 0;
     padding: 0;
-  }
-  
-  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.dark-mode {
+    background-color: #222;
+    color: #fff;
+}
+
+/* Container da Lista de Tarefas */
+.task-list-container {
     max-width: 600px;
-    margin: 50px auto;
-    background: #fff;
+    background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1, h2 {
+}
+
+/* Títulos das Tarefas */
+h1 {
     text-align: center;
     color: #333;
-  }
-  
-  form {
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+/* Formulário das Tarefas */
+form {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
-  }
-  
-  form input, form button {
+}
+
+form input,
+form select,
+form button {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
-  
-  form button {
+    font-size: 16px;
+}
+
+form button {
     background-color: #28a745;
     color: white;
     cursor: pointer;
-  }
-  
-  form button:hover {
+    border: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+form button:hover {
     background-color: #218838;
-  }
-  
-  ul {
+}
+
+/* Lista das Tarefas */
+ul {
     list-style: none;
     padding: 0;
-  }
-  
-  li {
+}
+
+li {
     padding: 10px;
     border: 1px solid #ddd;
     margin-bottom: 10px;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
-  }
-  
-  li.completed {
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Tarefas Concluídas */
+.completed {
     text-decoration: line-through;
     color: #999;
-  }
+}
+
+/* Container das Tarefas Pendentes e Concluídas */
+.task-lists {
+    margin-top: 20px;
+}
+
+/* Container do Botão de Alternar Tema */
+.theme-toggle-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+/* Botão Circular para Alternar Tema */
+.theme-btn {
+    background-color: #fff;
+    border: none;
+    color: #222;
+    font-weight: bold;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    outline: none;
+    font-weight: bold;
+}
+
+.theme-btn:hover {
+    background-color: #eaeaea;
+}
+
+.theme-btn:active {
+    transform: scale(0.95);
+}
+
+/* Button dark mode */
+body.dark-mode .theme-btn {
+    background-color: #555;
+    color: #fff;
+}
+
+body.dark-mode .theme-btn:hover {
+    background-color: #444;
+}
+
+/* Container da Lista de Tarefas */
+.task-list-container {
+    max-width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Modo Escuro: Caixinha das Tarefas */
+body.dark-mode .task-list-container {
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+/* Modo Escuro: Tarefas Pendentes e Concluídas */
+body.dark-mode li {
+    background-color: #2e2e2e;
+    color: #fff;
+}
+
+/* Modo Escuro: Botões e Texts */
+body.dark-mode form input,
+body.dark-mode form select,
+body.dark-mode form button {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+/* Botões de Alternar Tema */
+body.dark-mode .theme-btn {
+    background-color: #555;
+    color: #fff;
+}
+
+/* Melhor contraste e legibilidade */
+body.dark-mode h1,
+body.dark-mode h2 {
+    color: #fff;
+}

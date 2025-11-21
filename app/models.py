@@ -1,5 +1,6 @@
 import json
 import os
+from datetime import datetime
 
 class TaskManager:
     FILE_PATH = "tasks.json"
@@ -21,9 +22,6 @@ class TaskManager:
             json.dump(self.tasks, file)
 
     def add_task(self, description, category, deadline):
-        if category not in self.CATEGORIES:
-            return None
-        
         task = {
             "id": len(self.tasks) + 1,
             "description": description,
@@ -60,5 +58,5 @@ class TaskManager:
 
     def get_tasks(self, completed=None):
         if completed is None:
-            return self.tasks
-        return [t for t in self.tasks if t['completed'] == completed]
+            return sorted(self.tasks, key=lambda t: t.get('deadline') or '', reverse=False)
+        return sorted([t for t in self.tasks if t['completed'] == completed], key=lambda t: t.get('deadline') or '', reverse=False)

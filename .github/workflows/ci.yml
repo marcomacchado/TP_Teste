@@ -32,7 +32,7 @@ jobs:
       - name: Run Tests (Ubuntu)
         run: |
           source venv/bin/activate
-          pytest app/tests
+          pytest tests
 
   test-macos:
     runs-on: macos-latest
@@ -56,7 +56,7 @@ jobs:
       - name: Run Tests (macOS)
         run: |
           source venv/bin/activate
-          pytest app/tests
+          pytest tests
 
   test-windows:
     runs-on: windows-latest
@@ -80,4 +80,4 @@ jobs:
       - name: Run Tests (Windows)
         run: |
           .\venv\Scripts\Activate.ps1
-          pytest app/tests
+          pytest tests
