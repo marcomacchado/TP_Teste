@@ -16,9 +16,14 @@ def list_tasks():
 def add_task():
     data = request.json
     description = data.get('description')
-    category = data.get('category', 'General')
+    category = data.get('category', 'General')  # 'General' será o padrão
     deadline = data.get('deadline')
 
+    # Primeiro, verifique se a descrição foi fornecida
+    if not description:
+        return jsonify({"error": "Description is required"}), 400
+
+    # Se a categoria não for válida, retorna um erro
     if category not in TaskManager.CATEGORIES:
         return jsonify({"error": "Categoria inválida"}), 400
 
@@ -26,6 +31,7 @@ def add_task():
     if task:
         return jsonify(task), 201
     return jsonify({"error": "Erro ao adicionar tarefa"}), 500
+
 
 @task_bp.route('/<int:task_id>', methods=['PUT'])
 def edit_task(task_id):
