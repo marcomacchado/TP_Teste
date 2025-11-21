@@ -28,7 +28,7 @@ def test_add_task_e2e(client):
     task_data = {
         "description": "Estudar Python",
         "category": "Pessoal",
-        "deadline": "2024-12-31",
+        "deadline": "2025-12-31",
     }
     response = client.post("/tasks/", json=task_data)
     assert response.status_code == 201
@@ -39,7 +39,7 @@ def test_add_task_e2e(client):
     assert len(tasks) == 1
     assert tasks[0]["description"] == "Estudar Python"
     assert tasks[0]["category"] == "Pessoal"
-    assert tasks[0]["deadline"] == "2024-12-31"
+    assert tasks[0]["deadline"] == "2025-12-31"
     assert tasks[0]["completed"] is False
 
 
@@ -48,7 +48,7 @@ def test_list_tasks_after_adding(client):
     task_data = {
         "description": "Estudar Python",
         "category": "Pessoal",
-        "deadline": "2024-12-31",
+        "deadline": "2025-12-31",
     }
     client.post("/tasks/", json=task_data)
     response = client.get("/tasks/")
@@ -62,7 +62,7 @@ def test_edit_task(client):
     task_data = {
         "description": "Estudar Python",
         "category": "Pessoal",
-        "deadline": "2024-12-31",
+        "deadline": "2025-12-31",
     }
     response = client.post("/tasks/", json=task_data)
     assert response.status_code == 201
@@ -73,7 +73,7 @@ def test_edit_task(client):
     edited_task_data = {
         "description": "Tarefa Editada",
         "category": "Pessoal",
-        "deadline": "2024-12-31",
+        "deadline": "2025-12-31",
     }
     put_response = client.put(f"/tasks/{task_id}", json=edited_task_data)
     assert put_response .status_code == 200
@@ -86,7 +86,7 @@ def test_mark_task_completed(client):
     task_data = {
         "description": "Estudar Python",
         "category": "Pessoal",
-        "deadline": "2024-12-31",
+        "deadline": "2025-12-31",
     }
     client.post("/tasks/", json=task_data)
     response = client.patch("/tasks/1/complete")
@@ -100,7 +100,7 @@ def test_edit_nonexistent_task(client):
     task_data = {
         "description": "Inexistente",
         "category": "Pessoal",
-        "deadline": "2024-12-31",
+        "deadline": "2025-12-31",
     }
     response = client.put("/tasks/999", json=task_data)
     assert response.status_code == 404
@@ -132,12 +132,12 @@ def test_list_pending_tasks(client):
     task_1_data = {
         "description": "Tarefa 1",
         "category": "Pessoal",
-        "deadline": "2024-12-30",
+        "deadline": "2025-12-30",
     }
     task_2_data = {
         "description": "Tarefa 2",
         "category": "Pessoal",
-        "deadline": "2024-12-31",
+        "deadline": "2025-12-31",
     }
     client.post("/tasks/", json=task_1_data)
     client.post("/tasks/", json=task_2_data)
@@ -158,7 +158,7 @@ def test_list_completed_tasks(client):
     task_data = {
         "description": "Tarefa 3",
         "category": "Pessoal",
-        "deadline": "2024-12-31",
+        "deadline": "2025-12-31",
     }
     client.post("/tasks/", json=task_data)
     client.patch("/tasks/1/complete")
@@ -196,7 +196,7 @@ def test_task_persistence(client):
     task_data = {
         "description": "Estudar Python",
         "category": "Pessoal",
-        "deadline": "2024-12-31",
+        "deadline": "2025-12-31",
     }
     client.post("/tasks/", json=task_data)
     response = client.get("/tasks/")
@@ -209,12 +209,12 @@ def test_unique_task_ids(client):
     task_1_data = {
         "description": "Tarefa 1",
         "category": "Pessoal",
-        "deadline": "2024-12-30",
+        "deadline": "2025-12-30",
     }
     task_2_data = {
         "description": "Tarefa 2",
         "category": "Pessoal",
-        "deadline": "2024-12-31",
+        "deadline": "2025-12-31",
     }
     client.post("/tasks/", json=task_1_data)
     client.post("/tasks/", json=task_2_data)
