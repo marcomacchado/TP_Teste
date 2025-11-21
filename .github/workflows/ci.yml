@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
   pull_request:
-     branches: [ "main" ]
+    branches: [ "main" ]
 
 permissions:
   contents: read
@@ -21,15 +21,16 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Install dependencies (Ubuntu)
+      - name: Create and activate virtual environment (Ubuntu)
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          python -m venv venv
+          source venv/bin/activate
+          pip install --upgrade pip
+          pip install pytest
 
       - name: Run Tests (Ubuntu)
         run: |
           source venv/bin/activate
-          pip install pytest
           pytest app/tests
 
   test-macos:
@@ -43,15 +44,16 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Install dependencies (macOS)
+      - name: Create and activate virtual environment (macOS)
         run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          python -m venv venv
+          source venv/bin/activate
+          pip install --upgrade pip
+          pip install pytest
 
       - name: Run Tests (macOS)
         run: |
           source venv/bin/activate
-          pip install pytest
           pytest app/tests
 
   test-windows:
@@ -65,13 +67,14 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Install dependencies (Windows)
+      - name: Create and activate virtual environment (Windows)
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          python -m venv venv
+          .\venv\Scripts\Activate.ps1
+          pip install --upgrade pip
+          pip install pytest
 
       - name: Run Tests (Windows)
         run: |
-          source venv/Scripts/activate
-          pip install pytest
+          .\venv\Scripts\Activate.ps1
           pytest app/tests
