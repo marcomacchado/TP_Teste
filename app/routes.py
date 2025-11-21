@@ -18,10 +18,12 @@ def add_task():
     description = data.get('description')
     category = data.get('category', 'General')
     deadline = data.get('deadline')
-    if not description:
-        return jsonify({"error": "Description is required"}), 400
+    if category not in TaskManager.CATEGORIES:
+        return jsonify({"error": "Categoria inválida"}), 400
     task = task_manager.add_task(description, category, deadline)
-    return jsonify(task), 201
+    if task:
+        return jsonify(task), 201
+    return jsonify({"error": "Erro ao adicionar tarefa"}), 500
 
 @task_bp.route('/<int:task_id>', methods=['PUT'])
 def edit_task(task_id):

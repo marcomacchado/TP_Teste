@@ -15,3 +15,16 @@ O sistema consiste em um gerenciador de tarefas web desenvolvido em Python com o
 - **SQLite:** Banco de dados relacional leve utilizado para desenvolvimento e testes.
 - **pytest:** Framework para testes em Python.
 - **GitHub Actions:** Plataforma de CI/CD para automação de testes e outros processos.
+
+### Como Usar
+1. Clone o repositório.
+2. Instale as dependências
+2. Instale as dependências
+    - python3 -m venv venv
+    - source venv/bin/activate  # No Windows: venv\Scripts\activate
+    - pip install -r requirements.txt
+3. Configurar arquivo '.env' com as seguintes configurações
+    FLASK_ENV=development
+    SECRET_KEY=uma_chave_segura_aleatória
+4. Executar
+    - python run.py

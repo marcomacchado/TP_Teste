@@ -1,1 +1,1 @@
-[{"id": 1, "description": "Estudar Python", "category": "Estudo", "deadline": "2024-12-31", "completed": false}]
+[{"id": 1, "description": "Estudar Python", "category": "Pessoal", "deadline": "2024-12-31", "completed": true}, {"id": 2, "description": "Testar sistema", "category": "Trabalho", "deadline": "2024-12-17", "completed": false}, {"id": 3, "description": "Fazer compras", "category": "Casa", "deadline": "2024-12-19", "completed": false}]

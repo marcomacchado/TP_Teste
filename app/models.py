@@ -3,6 +3,7 @@ import os
 
 class TaskManager:
     FILE_PATH = "tasks.json"
+    CATEGORIES = ["Trabalho", "Pessoal", "Casa", "Saúde", "Finanças"]
 
     def __init__(self):
         self.tasks = []
@@ -20,6 +21,9 @@ class TaskManager:
             json.dump(self.tasks, file)
 
     def add_task(self, description, category, deadline):
+        if category not in self.CATEGORIES:
+            return None
+        
         task = {
             "id": len(self.tasks) + 1,
             "description": description,
@@ -36,7 +40,7 @@ class TaskManager:
         if task:
             if description:
                 task['description'] = description
-            if category:
+            if category and category in self.CATEGORIES:
                 task['category'] = category
             if deadline:
                 task['deadline'] = deadline

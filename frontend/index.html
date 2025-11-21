@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Tarefas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Lista de Tarefas</h1>
+
+    <form id="task-form">
+      <input type="text" id="description" placeholder="Descrição" required>
+      <select id="category">
+        <option value="Trabalho">Trabalho</option>
+        <option value="Pessoal">Pessoal</option>
+        <option value="Casa">Casa</option>
+        <option value="Saúde">Saúde</option>
+        <option value="Finanças">Finanças</option>
+      </select>
+      <input type="date" id="deadline" placeholder="Prazo">
+      <button type="submit">Adicionar</button>
+    </form>
+
+    <h2>Tarefas Pendentes</h2>
+    <ul id="pending-tasks"></ul>
+
+    <h2>Tarefas Concluídas</h2>
+    <ul id="completed-tasks"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
