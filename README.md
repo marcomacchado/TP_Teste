@@ -20,11 +20,21 @@ O sistema consiste em um gerenciador de tarefas web desenvolvido em Python com o
 1. Clone o repositório.
 2. Instale as dependências
 2. Instale as dependências
-    - python3 -m venv venv
-    - source venv/bin/activate  # No Windows: venv\Scripts\activate
-    - pip install -r requirements.txt
+
+    ```
+    python3 -m venv venv
+    source venv/bin/activate  # No Windows: venv\Scripts\activate
+    pip install -r requirements.txt
+    ```
+
 3. Configurar arquivo '.env' com as seguintes configurações
+    ```
     FLASK_ENV=development
     SECRET_KEY=uma_chave_segura_aleatória
+    ```
+
 4. Executar
-    - python run.py
+
+    ```
+    python run.py
+    ```
