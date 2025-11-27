@@ -33,6 +33,16 @@ jobs:
         run: |
           source venv/bin/activate
           pytest tests
+          pytest --cov=app --cov-report=xml tests/
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage.xml
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true
 
   test-macos:
     runs-on: macos-latest
