@@ -38,3 +38,10 @@ O sistema consiste em um gerenciador de tarefas web desenvolvido em Python com o
     ```
     python run.py
     ```
+
+### Como Testar Localmente
+1. Com os requrimentos necessários (requeriments.txt) instalados, execute:
+
+    ```
+    pytest
+    ```
